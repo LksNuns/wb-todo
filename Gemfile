@@ -18,12 +18,14 @@ gem 'bootstrap-sass', '~> 3.3.6'
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 3.5'
+  gem "capybara-webkit"
 end
 
 group :test do
   gem 'capybara'
   gem 'shoulda-matchers'
-  gem 'factory_girl'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
 end
 
 group :development do
