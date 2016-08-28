@@ -17,4 +17,7 @@ class Task < ApplicationRecord
 
   validates :body, presence: true
 
+  scope :finished, -> { where(finished: true) }
+  scope :not_finished, -> { where(finished: false) }
+
 end

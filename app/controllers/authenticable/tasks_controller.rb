@@ -1,7 +1,8 @@
 class Authenticable::TasksController < Authenticable::AuthenticableController
 
   def index
-    @tasks = current_user.tasks
+    @finished_tasks = current_user.tasks.finished
+    @not_finished_tasks = current_user.tasks.not_finished
     @task = Task.new
   end
 

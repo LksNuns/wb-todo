@@ -17,7 +17,7 @@
       <hr>
 
       <ul id="sortable" class="list-unstyled">
-        <% @tasks.each do |task| %>
+        <% @not_finished_tasks.each do |task| %>
             <%= render task %>
         <% end %>
 
@@ -33,7 +33,9 @@
     <div class="todolist">
       <h1>Already Done</h1>
       <ul id="done-items" class="list-unstyled">
-        <li>Some item <button class="remove-item btn btn-default btn-xs pull-right"><span class="glyphicon glyphicon-remove"></span></button></li>
+        <% @finished_tasks.each do |task| %>
+            <%= render partial: 'finished_task', locals: { task: task } %>
+        <% end %>
       </ul>
     </div>
   </div>
