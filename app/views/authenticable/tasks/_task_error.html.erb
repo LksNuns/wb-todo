@@ -1,0 +1,10 @@
+<% if task.errors.any? %>
+  <div id="task_error" class="alert alert-danger alert-white rounded">
+    <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+    <div class="icon"><%= fa_icon "times-circle" %></div>
+    <strong>Error!</strong>
+    <% task.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </div>
+<% end %>

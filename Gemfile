@@ -14,6 +14,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.6'
+gem "font-awesome-rails"
+
 
 group :development, :test do
   gem 'byebug', platform: :mri

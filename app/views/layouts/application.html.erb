@@ -12,7 +12,16 @@
 
   <body>
     <div class="container">
-      <%= yield %>      
+      <% if flash[:notice] %>
+        <div class="alert alert-info alert-white rounded">
+          <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+          <div class="icon"><%= fa_icon "info-circle" %></div>
+          <strong>Success!</strong>
+          <%= notice %>
+        </div>
+      <% end %>
+
+      <%= yield %>
     </div>
   </body>
 </html>
