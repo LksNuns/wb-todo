@@ -1,6 +1,4 @@
 require 'rails_helper'
-require_relative '../support/page_objects/devise/register_form.rb'
-require_relative '../support/page_objects/devise/sign_in_form.rb'
 
 feature "user register and login", js: true  do
 
