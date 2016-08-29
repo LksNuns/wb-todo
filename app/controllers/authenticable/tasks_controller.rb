@@ -21,9 +21,11 @@ class Authenticable::TasksController < Authenticable::AuthenticableController
   end
 
   def update
-    if @task.update(task_params)
-      respond_to do |format|
+    respond_to do |format|
+      if @task.update(task_params)
         format.js {}
+      else
+        format.js { render 'error', status: :unprocessable_entity  }
       end
     end
   end
@@ -31,7 +33,7 @@ class Authenticable::TasksController < Authenticable::AuthenticableController
   def destroy
     @task.destroy
   end
-  
+
   private
 
   def task_params

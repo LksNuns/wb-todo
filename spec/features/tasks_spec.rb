@@ -25,6 +25,11 @@ feature 'User Tasks' do
     expect(task_page).to have_task("new name")
   end
 
+  scenario "edit task with invalid body", js: true do
+    task_page.visit_page.edit_task(task.id)
+    expect(task_page).to have_error("Body can't be blank")
+  end
+
   scenario "finish task", js: true do
     task_page.visit_page.finish_task(task.id)
     expect(task_page).to have_finished_task(task.body)
