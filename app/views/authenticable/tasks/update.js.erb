@@ -1,0 +1,13 @@
+var task = $("#edit_task_<%= @task.id %>");
+$(".editable-task").removeClass("editable-task");
+
+// when edit task finished
+if(<%= @task.finished %>){
+  $("<%= j render partial: 'finished_task', locals: { task: @task } %>").appendTo('#done-items').hide().fadeIn(500);
+  $(task).remove();
+
+// when edit task body
+} else {
+  task.find(".task-body").html("<%= @task.body %>");
+  task.find("#task_body").val("<%= @task.body %>");
+}

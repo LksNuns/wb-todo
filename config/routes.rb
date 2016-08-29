@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   devise_for :users
 
   namespace :authenticable do
-    resources :tasks, only: [ :index, :create ]
+    resources :tasks, only: [ :index, :create, :update ]
   end
 end

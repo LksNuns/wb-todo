@@ -1,7 +1,30 @@
-<li class="ui-state-default">
-  <div class="checkbox">
-    <label><input type="checkbox" value="" /><%= task.body %></label>
-    <button class="remove-item btn btn-danger btn-xs pull-right"><%= fa_icon "trash" %></button>
-    <button class="btn btn-primary btn-xs pull-right"><%= fa_icon "pencil" %></button>
-  </div>
-</li>
+<%= form_for [:authenticable, task], remote: true do |f| %>
+  <li class="ui-state-default margin-task">
+    <div class="checkbox">
+      <label>
+
+        <%= f.check_box :finished, class: "finished-task" %>
+        <div class="body-space">
+          <div class="task-body"><%= task.body %></div>
+
+          <div class="task-edit">
+
+            <div class="input-group">
+              <%= f.text_field :body, class: "form-control input-sm" %>
+              <span class="input-group-btn">
+                <%= f.submit "ok", class: "btn-update-task btn btn-success btn-sm" %>
+              </span>
+            </div>
+        </div>
+
+        </div>
+
+    </label>
+    <div class="btn-task pull-right">
+      <button class="edit-item btn btn-primary btn-xs"><%= fa_icon "pencil" %></button>
+      <button class="remove-item btn btn-danger btn-xs"><%= fa_icon "trash" %></button>
+
+    </div>
+    </div>
+  </li>
+<% end %>

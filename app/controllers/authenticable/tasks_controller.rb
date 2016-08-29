@@ -19,11 +19,19 @@ class Authenticable::TasksController < Authenticable::AuthenticableController
     end
   end
 
+  def update
+    @task = current_user.tasks.find(params[:id])
+    if @task.update(task_params)
+      respond_to do |format|
+        format.js {}
+      end
+    end
+  end
 
   private
 
   def task_params
-    params.require(:task).permit(:body)
+    params.require(:task).permit(:body, :finished)
   end
 
 end
