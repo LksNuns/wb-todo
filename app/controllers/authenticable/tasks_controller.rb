@@ -1,4 +1,5 @@
 class Authenticable::TasksController < Authenticable::AuthenticableController
+  before_action :set_task, only: [ :update, :destroy ]
 
   def index
     @finished_tasks = current_user.tasks.finished
@@ -20,7 +21,6 @@ class Authenticable::TasksController < Authenticable::AuthenticableController
   end
 
   def update
-    @task = current_user.tasks.find(params[:id])
     if @task.update(task_params)
       respond_to do |format|
         format.js {}
@@ -28,10 +28,18 @@ class Authenticable::TasksController < Authenticable::AuthenticableController
     end
   end
 
+  def destroy
+    @task.destroy
+  end
+  
   private
 
   def task_params
     params.require(:task).permit(:body, :finished)
+  end
+
+  def set_task
+    @task = current_user.tasks.find(params[:id])
   end
 
 end

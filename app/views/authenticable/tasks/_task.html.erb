@@ -1,5 +1,5 @@
-<%= form_for [:authenticable, task], remote: true do |f| %>
   <li class="ui-state-default margin-task">
+  <%= form_for [:authenticable, task], remote: true do |f| %>
     <div class="checkbox">
       <label>
 
@@ -22,9 +22,10 @@
     </label>
     <div class="btn-task pull-right">
       <button class="edit-item btn btn-primary btn-xs"><%= fa_icon "pencil" %></button>
-      <button class="remove-item btn btn-danger btn-xs"><%= fa_icon "trash" %></button>
-
+      <%= link_to authenticable_task_path(task.id), class: "remove-item btn btn-danger btn-xs", method: :delete, remote: true do %>
+        <%= fa_icon "trash" %>
+      <% end %>
     </div>
     </div>
+    <% end %>
   </li>
-<% end %>

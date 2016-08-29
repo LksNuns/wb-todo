@@ -20,10 +20,15 @@ $(document).on('click', '.edit-item', function(event) {
   }
 });
 
-// Ajax to update finished
+// submit update finished
 $(document).on('click', 'form .finished-task', function(event) {
   $(this).closest('form').submit();
 });
+
+//ajax submit destroy task
+$(document).on('ajax:success', '.remove-item', function(event, xhr, status, data) {
+  $(this).closest('li').remove();
+})
 
 // $("#sortable").sortable();
 // $("#sortable").disableSelection();

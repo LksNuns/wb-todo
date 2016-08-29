@@ -24,12 +24,16 @@ li.ui-state-default{
   border:none;
 }
 
+.ui-state-default form {
+  padding-bottom: 11px;
+}
+
 .margin-task {
   margin: 11px 0;
 }
 
 .margin-task-edit {
-  margin-top: 7px;
+  margin-top: 2px;
 }
 
 .body-space {

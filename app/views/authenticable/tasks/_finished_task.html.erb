@@ -1,4 +1,6 @@
 <li>
   <%= task.body %>
-  <button class="remove-item btn btn-danger btn-xs pull-right"><%= fa_icon "trash" %></button>
+  <%= link_to authenticable_task_path(task.id), class: "remove-item btn btn-danger btn-xs pull-right", method: :delete, remote:true do %>
+    <%= fa_icon "trash" %>
+  <% end %>
 </li>
