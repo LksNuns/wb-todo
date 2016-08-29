@@ -1,4 +1,4 @@
-  <li class="ui-state-default margin-task">
+  <li class="ui-state-default margin-task" id=<%= "task-#{task.id}" %>>
   <%= form_for [:authenticable, task], remote: true do |f| %>
     <div class="checkbox">
       <label>

@@ -25,10 +25,19 @@ feature 'User Tasks' do
     expect(task_page).to have_task("new name")
   end
 
-  scenario "finish a task", js: true do
+  scenario "finish task", js: true do
     task_page.visit_page.finish_task(task.id)
     expect(task_page).to have_finished_task(task.body)
   end
 
+  scenario "remove unfinished task", js: true do
+    task_page.visit_page.remove_task(task.id)
+    expect(task_page).to have_not_task(task.body)
+  end
 
+  scenario "remove finished task", js: true do
+    task.finished = true
+    task_page.visit_page.remove_task(task.id)
+    expect(task_page).to have_not_finished_task(task.body)
+  end
 end

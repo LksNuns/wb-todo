@@ -23,6 +23,12 @@ class TaskPage
     self
   end
 
+  def remove_task(id)
+    within("#task-#{id}") do
+      find('.remove-item').click
+    end
+  end
+
   def finish_task(id)
     within("#edit_task_#{id}") do
       check('task_finished')
@@ -32,6 +38,14 @@ class TaskPage
 
   def has_task?(task_body)
     task_list.has_css? 'li', text: task_body
+  end
+
+  def has_not_task?(task_body)
+    task_list.has_no_css? 'li', text: task_body
+  end
+
+  def has_not_finished_task?(task_body)
+    task_finished.has_no_css? 'li', text: task_body
   end
 
   def has_error?(error)
