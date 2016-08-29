@@ -29,7 +29,7 @@ class Task < ApplicationRecord
   end
 
   def send_congratulation_email
-    UserMailer.completed_task(self).deliver if self.finished?
+    UserMailer.completed_task(self).deliver_later if self.finished?
   end
 
 end
