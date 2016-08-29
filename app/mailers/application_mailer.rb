@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'no-reply@wp-todo.com'
+  default from: 'noreply@wptodo.com'
   layout 'mailer'
 end
