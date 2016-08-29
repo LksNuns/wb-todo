@@ -22,4 +22,14 @@ class Task < ApplicationRecord
   scope :finished, -> { where(finished: true).order(updated_at: :asc) }
   scope :not_finished, -> { where(finished: false).order(created_at: :asc) }
 
+  after_save :send_congratulation_email
+
+  def finished?
+    self.finished
+  end
+
+  def send_congratulation_email
+    UserMailer.completed_task(self).deliver_now if self.finished?
+  end
+
 end
