@@ -35,8 +35,8 @@ class Task < ApplicationRecord
     UserMailer.completed_task(self, congrats).deliver_later if self.finished?
 
     data = congrats.merge(
-        { user: self.user.id,
-          task: self.id,
+        { user: self.user.name,
+          task: self.body,
           updated_at: self.updated_at.strftime("%Y-%m-%d %H:%M:%S")
         })
 
