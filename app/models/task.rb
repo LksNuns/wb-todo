@@ -34,11 +34,10 @@ class Task < ApplicationRecord
     congrats = MailUtilCongratulations.random_congrats
     UserMailer.completed_task(self, congrats).deliver_later if self.finished?
 
-    data = {}
-    data.merge!({ user: self.user.id, task: self.id, updated_at: self.updated_at })
+    data = congrats.merge({ user: self.user.id, task: self.id, updated_at: self.updated_at })
     data = data.to_json
     Tracking.create(event: 'completed_task', data: data)
 
   end
-  
+
 end
