@@ -7,9 +7,8 @@ namespace :app do
   task tracking_csv: :environment do
 
   filename = "./tmp/csv/#{Time.now.strftime("%Y%m%d%H%M%S")}_tracking_completed_tasks.csv"
-
   Dir.mkdir("./tmp/csv") unless File.exists?("./tmp/csv")
-  puts Tracking.first.data["user"]
+
   CSV.open(filename, "wb") do |csv|
     csv << ["user", "task", "message", "color", "completed_at"]
     Tracking.all.each do |log|
