@@ -33,7 +33,7 @@ class Task < ApplicationRecord
   def send_congratulation_email
     if finished
       congrats = MailUtilCongratulations.random_congrats
-      UserMailer.completed_task(self, congrats).deliver_later if self.finished?
+      UserMailer.completed_task(self, congrats).deliver if self.finished?
       generate_tracking(congrats)
     end
   end
