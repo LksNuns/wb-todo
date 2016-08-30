@@ -37,7 +37,7 @@ class Task < ApplicationRecord
     data = congrats.merge(
         { user: self.user.id,
           task: self.id,
-          updated_at: self.updated_at.strftime("%Y-%m-%d %H:%M:%S") 
+          updated_at: self.updated_at.strftime("%Y-%m-%d %H:%M:%S")
         })
 
     data = data.to_json
