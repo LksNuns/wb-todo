@@ -1,24 +1,19 @@
-# README
+### Demo: <https://wp-todo.herokuapp.com> (Heroku)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Rake Task
++ ```rake app:tracking_csv```
 
-Things you may want to cover:
+### Run
+##### Create database:
+```
+rake db:create && rake db:migrate
+```
+#####  Run on localhost
+```
+rails server
+```
+Link: <http://localhost:3000/>
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Using
++ ```Ruby 2.3.1```
++ ```Rails 5```
